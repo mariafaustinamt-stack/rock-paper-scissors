@@ -71,3 +71,20 @@ function getcomputermove()
     else
         return 'scissors';
 }
+let intervalID;
+let AutoPlayis=false;
+function playAuto()
+{
+    if(!AutoPlayis)
+    {
+        intervalID=setInterval(function(){
+            let playmove=getcomputermove();
+            gamemoves(playmove);
+            AutoPlayis=true;
+        },1000);
+    }
+    else{
+        clearInterval(intervalID);
+        AutoPlayis=false;
+    }
+}
